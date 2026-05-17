@@ -6,46 +6,33 @@ import Link from "next/link";
 import { useState } from "react";
 import NavLogo from "@/assets/Logo.png"
 import NavLink from "./NavLink";
-import { signOut, useSession } from "@/lib/auth-client";
-import { usePathname, useRouter } from "next/navigation";
+import { useSession } from "@/lib/auth-client";
 import ProfileDropdown from "@/components/ProfileDropdown";
 
 const Navbar = () => {
 
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
     const navList = <>
         <li>
-            <NavLink href="/" className="font-medium">Home</NavLink>
+            <NavLink href="/" onClick={() => setIsMenuOpen(false)}>Home</NavLink>
         </li>
         <li>
-            <NavLink href="/allbooks" className="font-medium">Tutors</NavLink>
+            <NavLink href="/allbooks" onClick={() => setIsMenuOpen(false)}>Tutors</NavLink>
         </li>
         <li>
-            <NavLink href="/profile" className="font-medium">Add Tutors</NavLink>
+            <NavLink href="/profile" onClick={() => setIsMenuOpen(false)}>Add Tutors</NavLink>
         </li>
         <li>
-            <NavLink href="/profile" className="font-medium">My Tutors</NavLink>
+            <NavLink href="/profile" onClick={() => setIsMenuOpen(false)}>My Tutors</NavLink>
         </li>
         <li>
-            <NavLink href="/profile" className="font-medium">My Booked Sessions</NavLink>
+            <NavLink href="/profile" onClick={() => setIsMenuOpen(false)}>My Booked Sessions</NavLink>
         </li>
     </>
 
     const { data } = useSession();
     const user = data?.user;
-
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-    const router = useRouter();
-    const pathname = usePathname();
-
-    // const handleLogOut = async () => {
-    //     await signOut();
-
-    //     if (pathname === "/profile" || pathname === "/profile/updateprofile" || pathname.startsWith("/bookdetails/")) {
-    //         router.push("/login");
-    //     }
-    // }
-
 
     return (
         <nav className="containter mx-auto fixed top-0 z-40 w-full border-b border-separator bg-background/70 backdrop-blur-lg">
@@ -101,7 +88,6 @@ const Navbar = () => {
                             user ?
                                 <div className="flex items-center">
                                     <ProfileDropdown />
-                                    {/* <Button onClick={handleLogOut} className={"w-full"}>Log Out</Button> */}
                                 </div>
                                 :
                                 <div className="flex items-center gap-2">
@@ -132,12 +118,6 @@ const Navbar = () => {
                                 user ?
                                     <div className="flex items-center gap-3 w-full">
                                         <ProfileDropdown />
-                                        {/* <Button
-                                                onClick={handleLogOut}
-                                                className={"w-full inline"}
-                                            >
-                                                Log Out
-                                            </Button> */}
                                     </div>
                                     :
                                     <div>

@@ -32,7 +32,7 @@ const ProfileDropdown = () => {
                 <Dropdown.Popover>
                     <Dropdown.Menu onAction={(key) => console.log(`Selected: ${key}`)}>
                         <Dropdown.Item id="new-file" textValue="New file">
-                            <Label className="text-lg font-medium text-gray-500">User: {user?.name}</Label>
+                            <Label className="text-lg font-medium text-gray-800">User: <span className="font-bold">{user?.name}</span></Label>
                         </Dropdown.Item>
                         <Dropdown.Item id="copy-link" textValue="Copy link">
                             <Button onClick={handleLogOut} className={"w-full"}>Log Out</Button>
