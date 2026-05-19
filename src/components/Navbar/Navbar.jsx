@@ -18,7 +18,7 @@ const Navbar = () => {
             <NavLink href="/" onClick={() => setIsMenuOpen(false)}>Home</NavLink>
         </li>
         <li>
-            <NavLink href="/allbooks" onClick={() => setIsMenuOpen(false)}>Tutors</NavLink>
+            <NavLink href="/tutors" onClick={() => setIsMenuOpen(false)}>Tutors</NavLink>
         </li>
         <li>
             <NavLink href="/add-tutor" onClick={() => setIsMenuOpen(false)}>Add Tutors</NavLink>
