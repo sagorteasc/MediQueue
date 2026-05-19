@@ -42,7 +42,7 @@ const Banner = () => {
                                 <h2 className='text-white font-bold text-3xl sm:text-4xl lg:text-6xl'>Book Expert Tutors Instantly</h2>
                                 <p className='text-white/80'>Connect with verified professionals and accelerate your learning journey.</p>
                                 <Link href={"/tutors"}>
-                                    <Button variant='ghost' className={"rounded text-white bg-linear-to-bl from-[#8126c0] to-[#c91f66] hover:scale-105 transition-all duration-200 hover:border-purple-400 hover:border"}>Call to Action</Button>
+                                    <Button variant='ghost' className={"rounded text-white bg-linear-to-br from-orange-400 via-pink-400 to-red-300 hover:scale-105 transition-all duration-200 hover:border-purple-400 hover:border"}>Call to Action</Button>
                                 </Link>
                             </motion.div>
                         </div>
@@ -62,7 +62,7 @@ const Banner = () => {
                                 <h2 className='text-white font-bold text-3xl sm:text-4xl lg:text-6xl'>Learn Without Scheduling Hassles</h2>
                                 <p className='text-white/80'>Smart calendar integration and real-time availability — sessions that fit your life.</p>
                                 <Link href={"/tutors"}>
-                                    <Button variant='ghost' className={"rounded text-white bg-linear-to-bl from-[#8126c0] to-[#c91f66] hover:scale-105 transition-all duration-200 hover:border-purple-400 hover:border"}>Call to Action</Button>
+                                    <Button variant='ghost' className={"rounded text-white bg-linear-to-br from-orange-400 via-pink-400 to-red-300 hover:scale-105 transition-all duration-200 hover:border-purple-400 hover:border"}>Call to Action</Button>
                                 </Link>
                             </motion.div>
                         </div>
@@ -82,7 +82,7 @@ const Banner = () => {
                                 <h2 className='text-white font-bold text-3xl sm:text-4xl lg:text-6xl'>Secure & Smart Online Session Booking</h2>
                                 <p className='text-white/80'>End-to-end encrypted bookings with instant confirmations and reminders.</p>
                                 <Link href={"/tutors"}>
-                                    <Button variant='ghost' className={"rounded text-white bg-linear-to-bl from-[#8126c0] to-[#c91f66] hover:scale-105 transition-all duration-200 hover:border-purple-400 hover:border"}>Call to Action</Button>
+                                    <Button variant='ghost' className={"rounded text-white bg-linear-to-br from-orange-400 via-pink-400 to-red-300 hover:scale-105 transition-all duration-200 hover:border-purple-400 hover:border"}>Call to Action</Button>
                                 </Link>
                             </motion.div>
                         </div>

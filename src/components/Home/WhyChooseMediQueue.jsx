@@ -10,7 +10,7 @@ const WhyChooseMediQueue = () => {
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 w-3/4 mx-auto items-stretch">
                     <motion.div whileHover={{ scale: 1.03, y: -8 }} transition={{ duration: 0.8, ease: "easeOut" }}>
-                        <Card className="p-10 hover:border hover:border-purple-500 h-full">
+                        <Card className="p-10 hover:border hover:shadow-md hover:border-purple-500 h-full">
                             <div className="bg-[#ede9fe] p-4 rounded-3xl w-fit">
                                 <p className="text-4xl">✅</p>
                             </div>
@@ -25,7 +25,7 @@ const WhyChooseMediQueue = () => {
                     </motion.div>
 
                     <motion.div whileHover={{ scale: 1.03, y: -8 }} transition={{ duration: 0.8, ease: "easeOut" }}>
-                        <Card className="p-10 hover:border hover:border-cyan-500 h-full">
+                        <Card className="p-10 hover:border hover:shadow-md hover:border-cyan-500 h-full">
                             <div className="bg-[#ede9fe] p-4 rounded-3xl w-fit">
                                 <p className="text-4xl">📅</p>
                             </div>
@@ -40,7 +40,7 @@ const WhyChooseMediQueue = () => {
                     </motion.div>
 
                     <motion.div whileHover={{ scale: 1.03, y: -8 }} transition={{ duration: 0.8, ease: "easeOut" }}>
-                        <Card className="p-10 hover:border hover:border-green-500 h-full">
+                        <Card className="p-10 hover:border hover:shadow-md hover:border-green-500 h-full">
                             <div className="bg-[#ede9fe] p-4 rounded-3xl w-fit">
                                 <p className="text-4xl">⚡</p>
                             </div>

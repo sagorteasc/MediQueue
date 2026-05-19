@@ -11,7 +11,7 @@ const LearningCategories = () => {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 w-3/4 mx-auto">
                 <motion.div whileHover={{ scale: 1.03, y: -8 }} transition={{ duration: 0.8, ease: "easeOut" }}>
-                    <Card className="w-full drop-shadow-2xl shadow-md space-y-2 p-10 text-center hover:border hover:border-purple-500">
+                    <Card className="w-full  hover:shadow-md space-y-2 p-10 text-center hover:border hover:border-purple-500">
                         <motion.p whileHover={{ rotate: 8, scale: 1.15 }} transition={{ type: "spring", stiffness: 300 }} className="text-4xl">📐</motion.p>
                         <h4 className="font-bold text-2xl text-gray-800">Mathematics</h4>
                         <p className="font-medium text-purple-400">24 tutors</p>
@@ -19,7 +19,7 @@ const LearningCategories = () => {
                 </motion.div>
 
                 <motion.div whileHover={{ scale: 1.03, y: -8 }} transition={{ duration: 0.8, ease: "easeOut" }}>
-                    <Card className="w-full drop-shadow-2xl shadow-md space-y-2 p-10 text-center hover:border hover:border-blue-500">
+                    <Card className="w-full  hover:shadow-md space-y-2 p-10 text-center hover:border hover:border-blue-500">
                         <motion.p whileHover={{ rotate: 8, scale: 1.15 }} transition={{ type: "spring", stiffness: 300 }} className="text-4xl">⚛</motion.p>
                         <h4 className="font-bold text-2xl text-gray-800">Physics</h4>
                         <p className="font-medium text-blue-400">18 tutors</p>
@@ -27,7 +27,7 @@ const LearningCategories = () => {
                 </motion.div>
 
                 <motion.div whileHover={{ scale: 1.03, y: -8 }} transition={{ duration: 0.8, ease: "easeOut" }}>
-                    <Card className="w-full drop-shadow-2xl shadow-md space-y-2 p-10 text-center hover:border hover:border-green-500">
+                    <Card className="w-full  hover:shadow-md space-y-2 p-10 text-center hover:border hover:border-green-500">
                         <motion.p whileHover={{ rotate: 8, scale: 1.15 }} transition={{ type: "spring", stiffness: 300 }} className="text-4xl">🧪</motion.p>
                         <h4 className="font-bold text-2xl text-gray-800">Chemistry</h4>
                         <p className="font-medium text-green-400">15 tutors</p>
@@ -35,7 +35,7 @@ const LearningCategories = () => {
                 </motion.div>
 
                 <motion.div whileHover={{ scale: 1.03, y: -8 }} transition={{ duration: 0.8, ease: "easeOut" }}>
-                    <Card className="w-full drop-shadow-2xl shadow-md space-y-2 p-10 text-center hover:border hover:border-red-500">
+                    <Card className="w-full  hover:shadow-md space-y-2 p-10 text-center hover:border hover:border-red-500">
                         <motion.p whileHover={{ rotate: 8, scale: 1.15 }} transition={{ type: "spring", stiffness: 300 }} className="text-4xl">💻</motion.p>
                         <h4 className="font-bold text-2xl text-gray-800">Programming</h4>
                         <p className="font-medium text-red-400">32 tutors</p>
@@ -43,7 +43,7 @@ const LearningCategories = () => {
                 </motion.div>
 
                 <motion.div whileHover={{ scale: 1.03, y: -8 }} transition={{ duration: 0.8, ease: "easeOut" }}>
-                    <Card className="w-full drop-shadow-2xl shadow-md space-y-2 p-10 text-center hover:border hover:border-orange-500">
+                    <Card className="w-full  hover:shadow-md space-y-2 p-10 text-center hover:border hover:border-orange-500">
                         <motion.p whileHover={{ rotate: 8, scale: 1.15 }} transition={{ type: "spring", stiffness: 300 }} className="text-4xl">📚</motion.p>
                         <h4 className="font-bold text-2xl text-gray-800">English</h4>
                         <p className="font-medium text-orange-400">21 tutors</p>
@@ -51,7 +51,7 @@ const LearningCategories = () => {
                 </motion.div>
 
                 <motion.div whileHover={{ scale: 1.03, y: -8 }} transition={{ duration: 0.8, ease: "easeOut" }}>
-                    <Card className="w-full drop-shadow-2xl shadow-md space-y-2 p-10 text-center hover:border hover:border-fuchsia-500">
+                    <Card className="w-full  hover:shadow-md space-y-2 p-10 text-center hover:border hover:border-fuchsia-500">
                         <motion.p whileHover={{ rotate: 8, scale: 1.15 }} transition={{ type: "spring", stiffness: 300 }} className="text-4xl">🧬</motion.p>
                         <h4 className="font-bold text-2xl text-gray-800">Biology</h4>
                         <p className="font-medium text-fuchsia-400">19 tutors</p>
