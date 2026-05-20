@@ -7,30 +7,37 @@ import { toast } from "react-toastify";
 
 const BookSessionModal = ({ tutorDetails, slot, setSlot }) => {
 
-    const { _id, name } = tutorDetails;
+    const { _id, name, sessionStartDate } = tutorDetails;
     const { data } = useSession();
     const user = data?.user;
 
     const [isOpen, setIsOpen] = useState(false);
+    const currentDate = new Date().toLocaleDateString('sv-SE');
 
     const handleBookSession = async (e) => {
         e.preventDefault();
 
         if (slot > 0) {
 
-            const res = await fetch(`http://localhost:8000/allTutorData/${_id}`, {
-                method: "PATCH",
-                headers: {
-                    "Content-Type": "application/json"
-                }
-            })
-            const data = await res.json();
-            console.log(data);
+            if (currentDate > sessionStartDate) {
+                toast.error("Booking is not available for this tutor");
+                return;
+            }
 
-            if (data.modifiedCount) {
-                setSlot(prev => prev - 1);
-                toast.success("Booking Successfull");
-                setIsOpen(false);
+            else {
+                const res = await fetch(`http://localhost:8000/allTutorData/${_id}`, {
+                    method: "PATCH",
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                })
+                const data = await res.json();
+
+                if (data.modifiedCount > 0) {
+                    setSlot(prev => prev - 1);
+                    toast.success("Booking Successfull");
+                    setIsOpen(false);
+                }
             }
         }
         else {
