@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const TutorCard = ({ popularTutors }) => {
     console.log(popularTutors);
-    const { photo, name, subject, teachingMode, experience, institution } = popularTutors
+    const { _id, photo, name, subject, teachingMode, experience, institution } = popularTutors;
 
     return (
         <div>
@@ -30,9 +30,9 @@ const TutorCard = ({ popularTutors }) => {
                             <p className="text-gray-500 line-clamp-1 font-medium">🌍 {teachingMode}</p>
                         </div>
 
-                        <div className="flex justify-end">
-                            <Link href={"/"}><Button className={"bg-linear-to-br from-orange-400 via-pink-400 to-red-300"}>Book Session</Button></Link>
-                        </div>
+                        <motion.div whileHover={{ scale: 1.03, x: -5, y: 2 }} transition={{ type: "spring", stiffness: 200, duration: 0.2 }} className="flex justify-end">
+                            <Link href={`/tutors/${_id}`}><Button className={"bg-linear-to-br from-orange-400 via-pink-400 to-red-300 hover:border-purple-400 hover:border"}>Book Session</Button></Link>
+                        </motion.div>
                     </div>
                 </Card>
             </motion.div>
