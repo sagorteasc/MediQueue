@@ -30,14 +30,14 @@ const Footer = () => {
                             <Link href={"/"}><li className="text-white/60 hover:underline">Home</li></Link>
                             <Link href={"/tutors"}><li className="text-white/60 hover:underline">Tutors</li></Link>
                             <Link href={"/add-tutor"}><li className="text-white/60 hover:underline">Add Tutors</li></Link>
-                            <Link href={"/profile"}><li className="text-white/60 hover:underline">My Booked Sessions</li></Link>
+                            <Link href={"/my-booked-session"}><li className="text-white/60 hover:underline">My Booked Sessions</li></Link>
                         </ul>
                     </div>
 
                     <div className="col-span-1 py-5">
                         <h3 className="font-bold text-2xl text-white mb-4">Contact</h3>
                         <ul className="space-y-3">
-                            <li className="text-white/60"><span className="font-semibold text-white/80">Email:</span> support@readhub.com</li>
+                            <li className="text-white/60"><span className="font-semibold text-white/80">Email:</span> support@mediqueue.com</li>
                             <li className="text-white/60"><span className="font-semibold text-white/80">Contact:</span> +8801234567</li>
                             <li className="text-white/60">Mon-Sat 9AM-6PM BST</li>
                         </ul>
@@ -47,7 +47,7 @@ const Footer = () => {
                 <hr className="text-gray-700 pb-5" />
 
                 <div className="flex justify-between flex-col md:flex-row gap-4">
-                    <h4 className="text-white/80 font-medium whitespace-nowrap">&copy; 2026 ReadHub. All rights reserved.</h4>
+                    <h4 className="text-white/80 font-medium whitespace-nowrap">&copy; 2026 MediQueue. All rights reserved.</h4>
 
                     <div>
                         <ul className="flex justify-between gap-4">

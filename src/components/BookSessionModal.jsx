@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 
 const BookSessionModal = ({ tutorDetails, slot, setSlot }) => {
 
-    const { _id, name, sessionStartDate } = tutorDetails;
+    const { _id, name, sessionStartDate, subject, availability, hourlyFee, totalSlot, } = tutorDetails;
     const { data } = useSession();
     const user = data?.user;
 
@@ -25,15 +25,38 @@ const BookSessionModal = ({ tutorDetails, slot, setSlot }) => {
             }
 
             else {
-                const res = await fetch(`http://localhost:8000/allTutorData/${_id}`, {
+                const userBookingData = {
+                    userId: user.id,
+                    userName: user.name,
+                    userEmail: user.email,
+                    tutorId: _id,
+                    tutorName: name,
+                    subject,
+                    availability,
+                    hourlyFee,
+                    totalSlot,
+                    sessionStartDate,
+                    status: "Pending"
+                }
+
+                const slotRes = await fetch(`http://localhost:8000/allTutorData/${_id}`, {
                     method: "PATCH",
                     headers: {
                         "Content-Type": "application/json"
                     }
                 })
-                const data = await res.json();
+                const slotData = await slotRes.json();
 
-                if (data.modifiedCount > 0) {
+                const bookingRes = await fetch('http://localhost:8000/booking', {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(userBookingData)
+                })
+                const bookingData = await bookingRes.json();
+
+                if (bookingData.insertedId && slotData.modifiedCount > 0) {
                     setSlot(prev => prev - 1);
                     toast.success("Booking Successfull");
                     setIsOpen(false);
