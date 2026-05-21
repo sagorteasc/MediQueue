@@ -1,5 +1,6 @@
-import CancelBooking from "@/components/CancelBooking";
 import ConfirmBooking from "@/components/ConfirmBooking";
+import DeleteTutor from "@/components/DeleteTutor";
+import EditTutor from "@/components/EditTutor";
 import { auth } from "@/lib/auth";
 import { Table } from "@heroui/react";
 import { headers } from "next/headers";
@@ -10,13 +11,9 @@ const MyTutors = async () => {
         headers: await headers()
     })
     const user = session?.user;
-    console.log(user);
-
 
     const res = await fetch(`http://localhost:8000/myTutor/${user.id}`);
     const myTutor = await res.json();
-    console.log(myTutor);
-
 
     return (
         <div className="max-w-7xl w-5/6 md:w-3/4 mx-auto mt-32 mb-16">
@@ -62,8 +59,8 @@ const MyTutors = async () => {
                                             <Table.Cell>{tutor.totalSlot}</Table.Cell>
                                             <Table.Cell>{tutor.sessionStartDate}</Table.Cell>
                                             <Table.Cell className={"flex items-center gap-2"}>
-                                                <ConfirmBooking bookingId={tutor._id} />
-                                                <CancelBooking bookingId={tutor._id} />
+                                                <EditTutor tutor={tutor} />
+                                                <DeleteTutor tutorId={tutor._id} />
                                             </Table.Cell>
                                         </Table.Row>
                                     ))}
