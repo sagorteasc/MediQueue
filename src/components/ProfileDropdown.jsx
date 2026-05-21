@@ -1,21 +1,22 @@
 "use client";
 
 import { signOut, useSession } from "@/lib/auth-client";
-import { Button, Dropdown, Label } from "@heroui/react";
+import { Button, Dropdown } from "@heroui/react";
 import Image from "next/image";
 import Link from 'next/link';
+import { usePathname } from "next/navigation";
 
 const ProfileDropdown = () => {
 
     const { data } = useSession();
     const user = data?.user;
-
+    const pathname = usePathname()
     const handleLogOut = async () => {
         await signOut();
 
-        // if (pathname === "/profile" || pathname === "/profile/updateprofile" || pathname.startsWith("/bookdetails/")) {
-        //     router.push("/login");
-        // }
+        if (pathname === "/profile" || pathname === "/add-tutor" || pathname === "/my-tutor" || pathname === "/my-booked-session" || pathname.startsWith("/tutors/")) {
+            router.push("/login");
+        }
     }
 
     return (

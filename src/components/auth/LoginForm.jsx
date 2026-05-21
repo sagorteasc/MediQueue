@@ -19,7 +19,7 @@ const LoginForm = () => {
         const { data, error } = await authClient.signIn.email({
             email: userData.email,
             password: userData.password,
-            callbackURL: "/",
+            callbackURL: document.referrer,
         });
 
         if (error) {
