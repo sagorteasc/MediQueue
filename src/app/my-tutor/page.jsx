@@ -1,0 +1,79 @@
+import CancelBooking from "@/components/CancelBooking";
+import ConfirmBooking from "@/components/ConfirmBooking";
+import { auth } from "@/lib/auth";
+import { Table } from "@heroui/react";
+import { headers } from "next/headers";
+
+const MyTutors = async () => {
+
+    const session = await auth.api.getSession({
+        headers: await headers()
+    })
+    const user = session?.user;
+    console.log(user);
+
+
+    const res = await fetch(`http://localhost:8000/myTutor/${user.id}`);
+    const myTutor = await res.json();
+    console.log(myTutor);
+
+
+    return (
+        <div className="max-w-7xl w-5/6 md:w-3/4 mx-auto mt-32 mb-16">
+            <div className="mb-6">
+                <h2 className="font-bold text-gray-800 text-4xl mb-2">My Tutors</h2>
+                <p className="text-black/70">Manage your listed tutors</p>
+            </div>
+
+            {
+                myTutor.length === 0 ?
+                    <div className="flex flex-col items-center justify-center py-24 text-center">
+
+                        <h2 className="text-3xl font-bold text-gray-800">
+                            No Tutors Added Yet
+                        </h2>
+
+                        <p className="text-gray-500 mt-3 max-w-md">
+                            You haven’t added any tutors yet.
+                            Create your first tutor profile and start connecting with students.
+                        </p>
+
+                    </div>
+                    :
+                    <Table>
+                        <Table.ScrollContainer>
+                            <Table.Content aria-label="Team members">
+                                <Table.Header>
+                                    <Table.Column isRowHeader>Tutor Name</Table.Column>
+                                    <Table.Column>Subject</Table.Column>
+                                    <Table.Column>Available</Table.Column>
+                                    <Table.Column>Hourly Fee</Table.Column>
+                                    <Table.Column>Total Slot</Table.Column>
+                                    <Table.Column>Starting Date</Table.Column>
+                                    <Table.Column>Action</Table.Column>
+                                </Table.Header>
+                                <Table.Body>
+                                    {myTutor.map(tutor => (
+                                        <Table.Row key={tutor._id}>
+                                            <Table.Cell>{tutor.name}</Table.Cell>
+                                            <Table.Cell>{tutor.subject}</Table.Cell>
+                                            <Table.Cell>{tutor.availability}</Table.Cell>
+                                            <Table.Cell>{tutor.hourlyFee}</Table.Cell>
+                                            <Table.Cell>{tutor.totalSlot}</Table.Cell>
+                                            <Table.Cell>{tutor.sessionStartDate}</Table.Cell>
+                                            <Table.Cell className={"flex items-center gap-2"}>
+                                                <ConfirmBooking bookingId={tutor._id} />
+                                                <CancelBooking bookingId={tutor._id} />
+                                            </Table.Cell>
+                                        </Table.Row>
+                                    ))}
+                                </Table.Body>
+                            </Table.Content>
+                        </Table.ScrollContainer>
+                    </Table>
+            }
+        </div>
+    );
+};
+
+export default MyTutors;

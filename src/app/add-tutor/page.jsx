@@ -1,13 +1,19 @@
 "use client";
+import { useSession } from "@/lib/auth-client";
 import { Card } from "@heroui/react";
 import { toast } from "react-toastify";
 
 const AddTutor = () => {
 
+    const { data } = useSession();
+    const user = data?.user;
+    console.log(user);
+
     const onSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
         const tutorData = Object.fromEntries(formData.entries());
+        tutorData.userId = user.id;
 
         const res = await fetch("http://localhost:8000/addTutor", {
             method: "POST",

@@ -24,7 +24,7 @@ const Navbar = () => {
             <NavLink href="/add-tutor" onClick={() => setIsMenuOpen(false)}>Add Tutors</NavLink>
         </li>
         <li>
-            <NavLink href="/profile" onClick={() => setIsMenuOpen(false)}>My Tutors</NavLink>
+            <NavLink href="/my-tutor" onClick={() => setIsMenuOpen(false)}>My Tutors</NavLink>
         </li>
         <li>
             <NavLink href="/my-booked-session" onClick={() => setIsMenuOpen(false)}>My Booked Sessions</NavLink>

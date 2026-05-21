@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 const TutorCard = ({ popularTutors }) => {
-    console.log(popularTutors);
     const { _id, photo, name, subject, teachingMode, experience, institution } = popularTutors;
 
     return (
