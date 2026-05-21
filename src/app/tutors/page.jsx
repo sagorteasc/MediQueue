@@ -2,7 +2,7 @@ import FilterAndSearchData from "@/components/FilterAndSearchData";
 
 const Tutors = async () => {
 
-    const res = await fetch("http://localhost:8000/allTutorData");
+    const res = await fetch(`${process.env.SERVER_SIDE_URL}/allTutorData`);
     const allTutors = await res.json();
 
     return (

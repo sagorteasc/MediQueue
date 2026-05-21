@@ -15,7 +15,7 @@ const AddTutor = () => {
         const tutorData = Object.fromEntries(formData.entries());
         tutorData.userId = user.id;
 
-        const res = await fetch("http://localhost:8000/addTutor", {
+        const res = await fetch(`${process.env.SERVER_SIDE_URL}/addTutor`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

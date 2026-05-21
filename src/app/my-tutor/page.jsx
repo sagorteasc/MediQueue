@@ -12,7 +12,7 @@ const MyTutors = async () => {
     })
     const user = session?.user;
 
-    const res = await fetch(`http://localhost:8000/myTutor/${user.id}`);
+    const res = await fetch(`${process.env.SERVER_SIDE_URL}/myTutor/${user.id}`);
     const myTutor = await res.json();
 
     return (

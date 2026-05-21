@@ -39,7 +39,7 @@ const BookSessionModal = ({ tutorDetails, slot, setSlot }) => {
                     status: "Pending"
                 }
 
-                const slotRes = await fetch(`http://localhost:8000/allTutorData/${_id}`, {
+                const slotRes = await fetch(`${process.env.SERVER_SIDE_URL}/allTutorData/${_id}`, {
                     method: "PATCH",
                     headers: {
                         "Content-Type": "application/json"
@@ -47,7 +47,7 @@ const BookSessionModal = ({ tutorDetails, slot, setSlot }) => {
                 })
                 const slotData = await slotRes.json();
 
-                const bookingRes = await fetch('http://localhost:8000/booking', {
+                const bookingRes = await fetch(`${process.env.SERVER_SIDE_URL}/booking`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"

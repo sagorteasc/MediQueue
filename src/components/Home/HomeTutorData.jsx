@@ -2,7 +2,7 @@ import TutorCard from "../TutorCard";
 
 const HomeTutorData = async () => {
 
-    const res = await fetch("http://localhost:8000/homePageTutorData");
+    const res = await fetch(`${process.env.SERVER_SIDE_URL}/homePageTutorData`);
     const popularTutors = await res.json();
     return (
         <div className="max-w-7xl mx-auto mb-16">

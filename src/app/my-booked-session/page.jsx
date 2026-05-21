@@ -11,7 +11,7 @@ const MyBookedSession = async () => {
     })
     const user = session?.user;
 
-    const res = await fetch(`http://localhost:8000/booking/${user.id}`);
+    const res = await fetch(`${process.env.SERVER_SIDE_URL}/booking/${user.id}`);
     const bookedSession = await res.json();
 
     return (

@@ -12,7 +12,7 @@ const FilterAndSearchData = ({ allTutors }) => {
         const searchValue = e.target.value;
         setSearchTutor(searchValue);
 
-        const res = await fetch(`http://localhost:8000/searchTutor?search=${searchValue}`);
+        const res = await fetch(`${process.env.SERVER_SIDE_URL}/searchTutor?search=${searchValue}`);
         const data = await res.json()
         setTutors(data);
     }

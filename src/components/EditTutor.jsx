@@ -18,7 +18,7 @@ const EditTutor = ({ tutor }) => {
         const tutorData = Object.fromEntries(formData.entries());
         tutorData.userId = user.id;
 
-        const res = await fetch(`http://localhost:8000/allTutorData/${_id}`, {
+        const res = await fetch(`${process.env.SERVER_SIDE_URL}/allTutorData/${_id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
