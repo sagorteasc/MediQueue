@@ -14,13 +14,13 @@ const FilterAndSearchData = ({ allTutors }) => {
         const searchValue = e.target.value;
         setSearchTutor(searchValue);
 
-        const res = await fetch(`http://localhost:8000/searchTutor?search=${searchValue}`);
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_SIDE_URL}/searchTutor?search=${searchValue}`);
         const data = await res.json()
         setTutors(data);
     }
 
     const handleFilter = async () => {
-        const res = await fetch(`http://localhost:8000/filterTutor?startDate=${startDate}&endDate=${endDate}`)
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_SIDE_URL}/filterTutor?startDate=${startDate}&endDate=${endDate}`)
         const data = await res.json();
         setTutors(data);
     }
