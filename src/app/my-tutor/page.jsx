@@ -1,4 +1,3 @@
-import ConfirmBooking from "@/components/ConfirmBooking";
 import DeleteTutor from "@/components/DeleteTutor";
 import EditTutor from "@/components/EditTutor";
 import { auth } from "@/lib/auth";
@@ -16,7 +15,15 @@ const MyTutors = async () => {
     })
     const user = session?.user;
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_SIDE_URL}/myTutor/${user.id}`);
+    const { token } = await auth.api.getToken({
+        headers: await headers()
+    })
+
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_SIDE_URL}/myTutor/${user.id}`, {
+        headers: {
+            authorization: `Bearer ${token}`
+        }
+    });
     const myTutor = await res.json();
 
     return (

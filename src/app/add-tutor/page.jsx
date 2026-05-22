@@ -18,10 +18,13 @@ const AddTutor = () => {
         const tutorData = Object.fromEntries(formData.entries());
         tutorData.userId = user.id;
 
+        const { data: tokenData } = await authClient.token();
+
         const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_SIDE_URL}/addTutor`, {
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                authorization: `Bearer ${tokenData?.token}`
             },
             body: JSON.stringify(tutorData)
         })

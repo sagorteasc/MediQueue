@@ -1,5 +1,5 @@
 "use client";
-import { useSession } from "@/lib/auth-client";
+import { authClient, useSession } from "@/lib/auth-client";
 import { Button, Input, Label, Modal, Surface, TextField } from "@heroui/react";
 import { motion } from "motion/react";
 import { useState } from "react";
@@ -39,10 +39,13 @@ const BookSessionModal = ({ tutorDetails, slot, setSlot }) => {
                     status: "Pending"
                 }
 
-                const slotRes = await fetch(`${process.env.NEXT_PUBLIC_SERVER_SIDE_URL}/allTutorData/${_id}`, {
-                    method: "PATCH",
+                const { data: tokenData } = await authClient.token();
+
+                const slotRes = await fetch(`${process.env.NEXT_PUBLIC_SERVER_SIDE_URL}/allTutorData/${_id}/decreaseSlot`, {
+                    method: "PUT",
                     headers: {
-                        "Content-Type": "application/json"
+                        "Content-Type": "application/json",
+                        authorization: `Bearer ${tokenData?.token}`
                     }
                 })
                 const slotData = await slotRes.json();
@@ -50,7 +53,8 @@ const BookSessionModal = ({ tutorDetails, slot, setSlot }) => {
                 const bookingRes = await fetch(`${process.env.NEXT_PUBLIC_SERVER_SIDE_URL}/booking`, {
                     method: "POST",
                     headers: {
-                        "Content-Type": "application/json"
+                        "Content-Type": "application/json",
+                        authorization: `Bearer ${tokenData?.token}`
                     },
                     body: JSON.stringify(userBookingData)
                 })

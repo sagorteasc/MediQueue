@@ -1,20 +1,26 @@
 "use client";
+import { authClient } from "@/lib/auth-client";
 import { AlertDialog, Button } from "@heroui/react";
+import { useRouter } from "next/navigation";
 import { BiTrash } from "react-icons/bi";
 import { toast } from "react-toastify";
 
 const DeleteTutor = ({ tutorId }) => {
+    const router = useRouter();
 
     const handleCancel = async () => {
+        const { data: tokenData } = await authClient.token();
+
         const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_SIDE_URL}/allTutorData/${tutorId}`, {
             method: "DELETE",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                authorization: `Bearer ${tokenData?.token}`
             }
         });
         const data = await res.json();
         toast.success("Tutor deleted successfully");
-        window.location.reload();
+        router.refresh();
     }
 
     return (

@@ -15,7 +15,19 @@ const MyBookedSession = async () => {
     })
     const user = session?.user;
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_SIDE_URL}/booking/${user.id}`);
+    const { token } = await auth.api.getToken({
+        headers: await headers()
+    })
+
+    if (!user) {
+        return;
+    }
+
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_SIDE_URL}/booking/${user?.id}`, {
+        headers: {
+            authorization: `Bearer ${token}`
+        }
+    });
     const bookedSession = await res.json();
 
     return (

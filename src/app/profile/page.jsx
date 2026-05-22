@@ -33,22 +33,22 @@ const MyProfile = () => {
 
                 <div className='p-5'>
                     <div className='flex justify-between items-center'>
-                        <p className='text-gray-600'>Name</p>
-                        <strong className='text-gray-800'>{user?.name}</strong>
+                        <p className='text-gray-500'>Name</p>
+                        <strong className='text-(--primary-text)'>{user?.name}</strong>
                     </div>
 
                     <Separator className='my-4' />
 
                     <div className='flex justify-between items-center'>
-                        <p className='text-gray-600'>Email</p>
-                        <strong className='text-gray-800'>{user?.email}</strong>
+                        <p className='text-gray-500'>Email</p>
+                        <strong className='text-(--primary-text)'>{user?.email}</strong>
                     </div>
 
                     <Separator className='my-4' />
 
                     <div className='flex justify-between items-center'>
-                        <p className='text-gray-600'>Member since</p>
-                        <strong className='text-gray-800'>{user?.createdAt ? new Date(user?.createdAt).toLocaleDateString() : "N/A"}</strong>
+                        <p className='text-gray-500'>Member since</p>
+                        <strong className='text-(--primary-text)'>{user?.createdAt ? new Date(user?.createdAt).toLocaleDateString() : "N/A"}</strong>
                     </div>
                 </div>
             </Card>
