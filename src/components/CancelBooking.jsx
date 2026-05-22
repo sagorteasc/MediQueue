@@ -3,6 +3,7 @@ import { authClient } from "@/lib/auth-client";
 import { AlertDialog, Button } from "@heroui/react";
 import { useRouter } from "next/navigation";
 import { FcCancel } from "react-icons/fc";
+import { toast } from "react-toastify";
 
 const CancelBooking = ({ bookingId }) => {
     const router = useRouter();
@@ -18,6 +19,7 @@ const CancelBooking = ({ bookingId }) => {
             }
         });
         const data = await res.json();
+        toast.success("Cancel Succefull");
         router.refresh();
     }
 

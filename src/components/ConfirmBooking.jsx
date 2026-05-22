@@ -3,6 +3,7 @@ import { authClient } from "@/lib/auth-client";
 import { Button } from "@heroui/react";
 import { useRouter } from "next/navigation";
 import { GiConfirmed } from "react-icons/gi";
+import { toast } from "react-toastify";
 
 const ConfirmBooking = ({ bookingId }) => {
     const router = useRouter();
@@ -17,6 +18,7 @@ const ConfirmBooking = ({ bookingId }) => {
             }
         });
         const data = await res.json();
+        toast.success("Confirmed Succefull");
         router.refresh();
     }
 
