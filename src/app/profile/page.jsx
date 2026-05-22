@@ -1,13 +1,14 @@
+"use client";
 import { useSession } from '@/lib/auth-client';
 import { Card, Separator } from '@heroui/react';
 import Image from 'next/image';
-import React from 'react';
-
-export const metadata = {
-    title: "MediQueue - Profile",
-};
+import React, { useEffect } from 'react';
 
 const MyProfile = () => {
+
+    useEffect(() => {
+        document.title = "Mediqueue - Profile"
+    }, [])
 
     const { data } = useSession();
     const user = data?.user;
