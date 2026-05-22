@@ -18,13 +18,16 @@ const MyProfile = () => {
             <Card className="w-full h-full rounded-xl p-0 drop-shadow-xl shadow-lg">
                 <div className=' flex justify-center p-5'>
                     <div className="rounded-full">
-                        <Image
-                            className="mx-auto rounded-full"
-                            src={user?.image}
-                            alt="User Image"
-                            width={100}
-                            height={100}
-                        />
+                        {
+                            user?.image &&
+                            <Image
+                                className="mx-auto rounded-full"
+                                src={user?.image}
+                                alt="User Image"
+                                width={100}
+                                height={100}
+                            />
+                        }
                     </div>
                 </div>
 
@@ -45,7 +48,7 @@ const MyProfile = () => {
 
                     <div className='flex justify-between items-center'>
                         <p className='text-gray-600'>Member since</p>
-                        <strong className='text-gray-800'>{new Date(user?.createdAt).toLocaleDateString()}</strong>
+                        <strong className='text-gray-800'>{user?.createdAt ? new Date(user?.createdAt).toLocaleDateString() : "N/A"}</strong>
                     </div>
                 </div>
             </Card>
