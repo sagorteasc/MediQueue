@@ -5,7 +5,7 @@ import { FcCancel } from "react-icons/fc";
 const CancelBooking = ({ bookingId }) => {
 
     const handleCancel = async () => {
-        const res = await fetch(`${process.env.SERVER_SIDE_URL}/booking/reject/${bookingId}`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_SIDE_URL}/booking/reject/${bookingId}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"

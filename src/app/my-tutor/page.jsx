@@ -5,6 +5,10 @@ import { auth } from "@/lib/auth";
 import { Table } from "@heroui/react";
 import { headers } from "next/headers";
 
+export const metadata = {
+    title: "MediQueue - My Tutors",
+};
+
 const MyTutors = async () => {
 
     const session = await auth.api.getSession({
@@ -12,29 +16,25 @@ const MyTutors = async () => {
     })
     const user = session?.user;
 
-    const res = await fetch(`${process.env.SERVER_SIDE_URL}/myTutor/${user.id}`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_SIDE_URL}/myTutor/${user.id}`);
     const myTutor = await res.json();
 
     return (
         <div className="max-w-7xl w-5/6 md:w-3/4 mx-auto mt-32 mb-16">
             <div className="mb-6">
-                <h2 className="font-bold text-gray-800 text-4xl mb-2">My Tutors</h2>
-                <p className="text-black/70">Manage your listed tutors</p>
+                <h2 className="font-bold text-(--primary-text) text-4xl mb-2">My Tutors</h2>
+                <p className="text-gray-500">Manage your listed tutors</p>
             </div>
 
             {
                 myTutor.length === 0 ?
                     <div className="flex flex-col items-center justify-center py-24 text-center">
 
-                        <h2 className="text-3xl font-bold text-gray-800">
+                        <h2 className="text-3xl font-bold text-(--primary-text)">
                             No Tutors Added Yet
                         </h2>
 
-                        <p className="text-gray-500 mt-3 max-w-md">
-                            You haven’t added any tutors yet.
-                            Create your first tutor profile and start connecting with students.
-                        </p>
-
+                        <p className="text-gray-500 mt-3 max-w-md">You haven’t added any tutors yet. Create your first tutor profile and start connecting with students.</p>
                     </div>
                     :
                     <Table>

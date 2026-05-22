@@ -1,2 +1,12 @@
 @import "tailwindcss";
 @import "@heroui/styles";
+
+:root {
+  --primary-text: #1e2939;
+  --secondary-text: #6a7282;
+}
+
+.dark {
+  --primary-text: #d0d6df;
+  --secondary-text: #9196a1;
+}

@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 const DeleteTutor = ({ tutorId }) => {
 
     const handleCancel = async () => {
-        const res = await fetch(`${process.env.SERVER_SIDE_URL}/allTutorData/${tutorId}`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_SIDE_URL}/allTutorData/${tutorId}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json"

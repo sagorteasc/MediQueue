@@ -1,9 +1,19 @@
 import TutorDetailsCard from "@/components/TutorDetailsCard";
 
+export const generateMetadata = async ({ params }) => {
+    const { id } = await params;
+
+    return {
+        title: `Mediqueue - ${id}`
+    }
+}
+
 const TutorDetails = async ({ params }) => {
 
     const { id } = await params;
-    const res = await fetch(`${process.env.SERVER_SIDE_URL}/allTutorData/${id}`)
+    console.log(id);
+
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_SIDE_URL}/allTutorData/${id}`)
     const tutorDetails = await res.json();
 
     return (

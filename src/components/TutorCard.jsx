@@ -20,7 +20,7 @@ const TutorCard = ({ popularTutors }) => {
                     />
 
                     <div className="flex flex-col">
-                        <h4 className="font-bold text-xl text-gray-800 mb-1">{name}</h4>
+                        <h4 className="font-bold text-xl text-(--primary-text) mb-1">{name}</h4>
                         <p className='text-purple-500 backdrop-blur-md px-4 py-1 text-xs bg-[#ede9fe] border border-purple-500 rounded-full w-fit mb-4'>{subject}</p>
 
                         <div className="flex flex-col gap-2 h-28 grow">

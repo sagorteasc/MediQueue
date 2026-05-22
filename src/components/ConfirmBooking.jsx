@@ -5,7 +5,7 @@ import { GiConfirmed } from "react-icons/gi";
 const ConfirmBooking = ({ bookingId }) => {
 
     const handleConfirm = async () => {
-        const res = await fetch(`${process.env.SERVER_SIDE_URL}/booking/confirm/${bookingId}`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_SIDE_URL}/booking/confirm/${bookingId}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"

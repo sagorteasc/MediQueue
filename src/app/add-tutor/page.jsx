@@ -1,13 +1,16 @@
 "use client";
 import { useSession } from "@/lib/auth-client";
 import { Card } from "@heroui/react";
+import { useEffect } from "react";
 import { toast } from "react-toastify";
 
 const AddTutor = () => {
 
+    useEffect(() => {
+        document.title = "MediQueue - Add Tutor"
+    }, [])
     const { data } = useSession();
     const user = data?.user;
-    console.log(user);
 
     const onSubmit = async (e) => {
         e.preventDefault();
@@ -15,7 +18,7 @@ const AddTutor = () => {
         const tutorData = Object.fromEntries(formData.entries());
         tutorData.userId = user.id;
 
-        const res = await fetch(`${process.env.SERVER_SIDE_URL}/addTutor`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_SIDE_URL}/addTutor`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -30,8 +33,8 @@ const AddTutor = () => {
     return (
         <div className="max-w-7xl mx-auto mt-32 mb-16">
             <div className="w-3/4 mx-auto mb-6">
-                <h2 className="font-bold text-gray-800 text-4xl mb-2">Add a New Tutor</h2>
-                <p className="text-black/70">Fill in the details to list a new tutor on MediQueue</p>
+                <h2 className="font-bold text-(--primary-text) text-4xl mb-2">Add a New Tutor</h2>
+                <p className="text-gray-500">Fill in the details to list a new tutor on MediQueue</p>
             </div>
 
             <Card className="w-3/4 mx-auto">
@@ -96,13 +99,13 @@ const AddTutor = () => {
                                 required
                                 className="w-full rounded-md border p-2"
                             >
-                                <option value="">Select Subject</option>
-                                <option>Mathematics</option>
-                                <option>Physics</option>
-                                <option>Chemistry</option>
-                                <option>Biology</option>
-                                <option>English</option>
-                                <option>Programming</option>
+                                <option value="" className="bg-background">Select Subject</option>
+                                <option className="bg-background">Mathematics</option>
+                                <option className="bg-background">Physics</option>
+                                <option className="bg-background">Chemistry</option>
+                                <option className="bg-background">Biology</option>
+                                <option className="bg-background">English</option>
+                                <option className="bg-background">Programming</option>
                             </select>
                         </div>
 
@@ -264,10 +267,10 @@ const AddTutor = () => {
                                 required
                                 className="w-full rounded-md border p-2"
                             >
-                                <option value="">Select Mode</option>
-                                <option>Online</option>
-                                <option>Offline</option>
-                                <option>Both</option>
+                                <option className="bg-background" value="">Select Mode</option>
+                                <option className="bg-background">Online</option>
+                                <option className="bg-background">Offline</option>
+                                <option className="bg-background">Both</option>
                             </select>
                         </div>
                     </div>

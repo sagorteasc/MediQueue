@@ -4,6 +4,10 @@ import { auth } from "@/lib/auth";
 import { Table } from "@heroui/react";
 import { headers } from "next/headers";
 
+export const metadata = {
+    title: "MediQueue - My Booking Sessions",
+};
+
 const MyBookedSession = async () => {
 
     const session = await auth.api.getSession({
@@ -11,21 +15,21 @@ const MyBookedSession = async () => {
     })
     const user = session?.user;
 
-    const res = await fetch(`${process.env.SERVER_SIDE_URL}/booking/${user.id}`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_SIDE_URL}/booking/${user.id}`);
     const bookedSession = await res.json();
 
     return (
         <div className="max-w-7xl w-5/6 md:w-3/4 mx-auto mt-32 mb-16">
             <div className="mb-6">
-                <h2 className="font-bold text-gray-800 text-4xl mb-2">My Booked Sessions</h2>
-                <p className="text-black/70">{bookedSession.length} sessions in total</p>
+                <h2 className="font-bold text-(--primary-text) text-4xl mb-2">My Booked Sessions</h2>
+                <p className="text-gray-500">{bookedSession.length} sessions in total</p>
             </div>
 
             {
                 bookedSession.length === 0 ?
                     <div className="flex flex-col items-center justify-center py-24 text-center">
 
-                        <h2 className="text-3xl font-bold text-gray-800">
+                        <h2 className="text-3xl font-bold text-(--primary-text)">
                             No Booking Sessions Found
                         </h2>
 

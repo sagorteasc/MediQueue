@@ -8,6 +8,7 @@ import NavLogo from "@/assets/Logo.png"
 import NavLink from "./NavLink";
 import { useSession } from "@/lib/auth-client";
 import ProfileDropdown from "@/components/ProfileDropdown";
+import ThemeToggle from "@/app/theme-toggle";
 
 const Navbar = () => {
 
@@ -86,13 +87,15 @@ const Navbar = () => {
                     <div className="hidden items-center gap-4 lg:flex">
                         {
                             user ?
-                                <div className="flex items-center">
+                                <div className="flex items-center gap-2">
                                     <ProfileDropdown />
+                                    <ThemeToggle />
                                 </div>
                                 :
                                 <div className="flex items-center gap-2">
                                     <Link href={"/login"}><Button className={"w-full"}>Login</Button></Link>
                                     <Link href={"/register"}><Button className={"w-full"}>Sign Up</Button></Link>
+                                    <ThemeToggle />
                                 </div>
                         }
                     </div>
@@ -116,13 +119,15 @@ const Navbar = () => {
                         <li className="mt-4 flex flex-col gap-2 border-t border-separator pt-4">
                             {
                                 user ?
-                                    <div className="flex items-center gap-3 w-full">
+                                    <div className="flex justify-between items-center w-full">
                                         <ProfileDropdown />
+                                        <ThemeToggle />
                                     </div>
                                     :
                                     <div>
                                         <Link href={"/login"}><Button className={"w-full mb-2"}>Login</Button></Link>
                                         <Link href={"/register"}><Button className={"w-full"}>Sign Up</Button></Link>
+                                        <ThemeToggle />
                                     </div>
                             }
                         </li>

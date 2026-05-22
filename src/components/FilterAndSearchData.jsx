@@ -27,7 +27,7 @@ const FilterAndSearchData = ({ allTutors }) => {
 
     return (
         <div>
-            <div className="w-3/4 mx-auto py-10 space-y-6 bg-[#f8f5ff] mb-5 rounded-3xl p-6 shadow-sm">
+            <div className="w-3/4 mx-auto py-10 space-y-6 bg-[#f8f5ff] dark:bg-[#18181b] mb-5 rounded-3xl p-6 shadow-sm">
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
 
                     <div className="space-y-1">
@@ -83,7 +83,7 @@ const FilterAndSearchData = ({ allTutors }) => {
                             data-variant="outline"
                             data-size="default"
                             onClick={handleFilter}
-                            className="inline-flex h-8 items-center justify-center gap-1.5 rounded-lg border bg-background px-2.5 text-sm font-medium transition-all hover:bg-accent hover:text-white"
+                            className="inline-flex h-8 items-center justify-center gap-1.5 rounded-lg border bg-(background) px-2.5 text-sm font-medium transition-all hover:bg-accent hover:text-white"
                         >
                             Filter
                         </button>
@@ -97,7 +97,7 @@ const FilterAndSearchData = ({ allTutors }) => {
                     tutors.length === 0 ?
                         <div className="col-span-full flex flex-col items-center justify-center py-24 text-center">
 
-                            <h2 className="text-3xl font-bold text-gray-800">
+                            <h2 className="text-3xl font-bold text-(--primary-text)">
                                 No Tutors Found
                             </h2>
 

@@ -49,7 +49,7 @@ const RegisterForm = () => {
             <Card className="w-fit p-8 flex justify-center items-center mt-32 mb-16 mx-auto">
                 <Form className="flex w-full flex-col gap-4" onSubmit={onSubmit}>
                     <div className="flex flex-col justify-center items-center">
-                        <h1 className="text-gray-800 font-bold text-2xl">Create New Account</h1>
+                        <h1 className="text-(--primary-text) font-bold text-2xl">Create New Account</h1>
                     </div>
                     <TextField
                         isRequired

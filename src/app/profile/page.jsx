@@ -4,6 +4,10 @@ import { Card, Separator } from '@heroui/react';
 import Image from 'next/image';
 import React from 'react';
 
+export const metadata = {
+    title: "MediQueue - User Profile",
+};
+
 const MyProfile = () => {
 
     const { data } = useSession();

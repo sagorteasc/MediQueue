@@ -6,10 +6,12 @@ import { Eye, EyeSlash } from "@gravity-ui/icons";
 import { BsGoogle } from "react-icons/bs";
 import Link from "next/link";
 import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 const LoginForm = () => {
 
     const [isVisible, setIsVisible] = useState(false);
+    const router = useRouter();
 
     const onSubmit = async (e) => {
         e.preventDefault();
@@ -19,7 +21,7 @@ const LoginForm = () => {
         const { data, error } = await authClient.signIn.email({
             email: userData.email,
             password: userData.password,
-            callbackURL: document.referrer,
+            callbackURL: "/",
         });
 
         if (error) {
@@ -28,6 +30,7 @@ const LoginForm = () => {
 
         if (data) {
             toast.success("Welcome Back");
+            router.back();
         }
     };
 
@@ -43,7 +46,7 @@ const LoginForm = () => {
             <Card className="w-fit p-8 flex justify-center items-center mt-32 mb-16 mx-auto">
                 <Form className="flex w-full flex-col gap-4" onSubmit={onSubmit}>
                     <div className="flex flex-col justify-center items-center">
-                        <h1 className="text-gray-800 font-bold text-2xl">Welcome Back</h1>
+                        <h1 className="text-(--primary-text) font-bold text-2xl">Welcome Back</h1>
                         <p className="text-xs text-gray-500">Please Login to Continue</p>
                     </div>
                     <TextField
@@ -96,7 +99,7 @@ const LoginForm = () => {
                             onClick={handleContinueWithGoogle}
                             type="button"
                             variant="outline"
-                            className={"w-full text-[#4079ee] border border-[#4079ee] hover:text-white hover:bg-accent"}
+                            className={"w-full bg-background text-[#4079ee] border border-[#4079ee] hover:text-white hover:bg-accent"}
                         >
                             <BsGoogle /> Continue with Google
                         </Button>

@@ -4,13 +4,15 @@ import { signOut, useSession } from "@/lib/auth-client";
 import { Button, Dropdown } from "@heroui/react";
 import Image from "next/image";
 import Link from 'next/link';
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 const ProfileDropdown = () => {
 
     const { data } = useSession();
     const user = data?.user;
-    const pathname = usePathname()
+    const pathname = usePathname();
+    const router = useRouter();
+
     const handleLogOut = async () => {
         await signOut();
 

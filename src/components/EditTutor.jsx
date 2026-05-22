@@ -18,7 +18,7 @@ const EditTutor = ({ tutor }) => {
         const tutorData = Object.fromEntries(formData.entries());
         tutorData.userId = user.id;
 
-        const res = await fetch(`${process.env.SERVER_SIDE_URL}/allTutorData/${_id}`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_SIDE_URL}/allTutorData/${_id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
@@ -26,9 +26,9 @@ const EditTutor = ({ tutor }) => {
             body: JSON.stringify(tutorData)
         })
         const data = await res.json();
-        console.log(data)
         toast.success("Tutor data updated successfully");
         e.target.reset();
+        window.location.reload();
     }
 
     return (
@@ -104,13 +104,13 @@ const EditTutor = ({ tutor }) => {
                                                 defaultValue={subject}
                                                 className="w-full rounded-md border p-2"
                                             >
-                                                <option value="">Select Subject</option>
-                                                <option>Mathematics</option>
-                                                <option>Physics</option>
-                                                <option>Chemistry</option>
-                                                <option>Biology</option>
-                                                <option>English</option>
-                                                <option>Programming</option>
+                                                <option className="bg-background" value="">Select Subject</option>
+                                                <option className="bg-background">Mathematics</option>
+                                                <option className="bg-background">Physics</option>
+                                                <option className="bg-background">Chemistry</option>
+                                                <option className="bg-background">Biology</option>
+                                                <option className="bg-background">English</option>
+                                                <option className="bg-background">Programming</option>
                                             </select>
                                         </div>
 
@@ -272,10 +272,10 @@ const EditTutor = ({ tutor }) => {
                                                 defaultValue={teachingMode}
                                                 className="w-full rounded-md border p-2"
                                             >
-                                                <option value="">Select Mode</option>
-                                                <option>Online</option>
-                                                <option>Offline</option>
-                                                <option>Both</option>
+                                                <option className="bg-background" value="">Select Mode</option>
+                                                <option className="bg-background">Online</option>
+                                                <option className="bg-background">Offline</option>
+                                                <option className="bg-background">Both</option>
                                             </select>
                                         </div>
                                     </div>
