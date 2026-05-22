@@ -1,11 +1,10 @@
-"use client";
 import { useSession } from '@/lib/auth-client';
 import { Card, Separator } from '@heroui/react';
 import Image from 'next/image';
 import React from 'react';
 
 export const metadata = {
-    title: "MediQueue - User Profile",
+    title: "MediQueue - Profile",
 };
 
 const MyProfile = () => {
