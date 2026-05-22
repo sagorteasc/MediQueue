@@ -14,6 +14,10 @@ const AddTutor = () => {
 
     const onSubmit = async (e) => {
         e.preventDefault();
+        if (!user) {
+            return;
+        }
+
         const formData = new FormData(e.currentTarget);
         const tutorData = Object.fromEntries(formData.entries());
         tutorData.userId = user.id;
