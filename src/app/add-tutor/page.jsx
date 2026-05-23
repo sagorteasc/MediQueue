@@ -1,5 +1,5 @@
 "use client";
-import { useSession } from "@/lib/auth-client";
+import { authClient, useSession } from "@/lib/auth-client";
 import { Card } from "@heroui/react";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
@@ -32,7 +32,7 @@ const AddTutor = () => {
             },
             body: JSON.stringify(tutorData)
         })
-        const data = await res.json();
+        const resData = await res.json();
         toast.success("Tutor added successfully");
         e.target.reset();
     }
